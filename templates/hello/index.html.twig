@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% set messages = messages|filter(message => date(message.created) > date('-2year')) %}
+    {% set messages = messages|map(message => message.content) %}
+
+    <ul>
+        {% for key, item in messages %}
+            <li>
+                <a href="{{ path('app_hello_show', {id: key}) }}">{{- item -}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

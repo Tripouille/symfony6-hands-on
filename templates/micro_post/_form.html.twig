@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+<div>{{ form_errors(form) }}</div>
+<div>
+    {{ form_label(form.title, 'Please enter the title') }}
+    {{ form_widget(form.title, {
+        attr: {
+            placeholder: 'Enter the title',
+        }
+    }) }}
+</div>
+
+<div>
+    {{ form_label(form.text) }}
+    {{ form_widget(form.text) }}
+</div>
+
+{% if submit is defined %}
+    {{ submit }}
+{% endif %}
+{{ form_end(form) }}

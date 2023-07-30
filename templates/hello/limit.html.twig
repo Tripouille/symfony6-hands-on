@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set messages = limit is not null ? messages|slice(0, limit) : messages %}
+    {% set messages = messages|map(message => message.content) %}
+
+    {% include 'partials/_list.html.twig' with {items: messages} only %}
+{% endblock %}

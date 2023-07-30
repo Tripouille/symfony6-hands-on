@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Post {{ post.id }}{% endblock %}
+
+{% block body %}
+    {% set submit %}
+        <button type="submit">Update post</button>
+    {% endset %}
+
+    {% include('micro_post/_form.html.twig') with
+        {
+            form: form,
+            submit: submit
+        } only %}
+{% endblock %}

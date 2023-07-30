@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MicroPostController!{% endblock %}
+
+{% block body %}
+    <main class="flex flex-col gap-2">
+        <a class="font-extrabold" href="{{ path('app_micropost_add') }}">Add a micro post</a>
+        <ul>
+            {% for index, post in posts %}
+                <li>
+                    <a href="{{ path('app_micropost_showone', {id: post.id}) }}">{{ post.text }}</a> -
+                    <a href="{{ path('app_micropost_edit', {id : post.id}) }}">edit</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
